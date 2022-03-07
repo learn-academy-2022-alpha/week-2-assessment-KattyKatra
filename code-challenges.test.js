@@ -34,12 +34,13 @@ const numbersArray2 = [24, 27, 30, 33, 36]
 
 // a) Create a test with expect statements for each of the variables provided.
 
-// describe("divThree", (number) => {
-//   it("returns if number is divisible by 3 or is not divisible by 3 based on input", () => {
-//     expect(divThree(number % 3 === 0)).toEqual("number is divisible by 3")
-//     expect(divThree(number % 3 !== 0)).toEqual("number is not divisible by 3")
-//   })
-// })
+describe("divThree", (number) => {
+  it("returns if number is divisible by 3 or is not divisible by 3 based on input", () => {
+    expect(divThree(num1)).toEqual("15 is divisible by 3")
+    expect(divThree(num2)).toEqual("0 is divisible by 3")
+    expect(divThree(num3)).toEqual("-7 is not divisible by 3")
+  })
+})
 //Got RED!
 
 const num1 = 15
@@ -57,24 +58,25 @@ const num3 = -7
 //If divisible by 3 returns "x is divisible by 3"
 //If not returns "x is not divisible by 3"
 
-// const divThree = (num) => {
-//   if (num % 3 === 0) {
-//     return `${num} is divisible by 3`
-//   } else {
-//     return `${num} is not divisible by 3`
-//   }
-// }
+const divThree = (num) => {
+  if (num % 3 === 0) {
+    return `${num} is divisible by 3`
+  } else {
+    return `${num} is not divisible by 3`
+  }
+}
 //I give up on this one for now. The code works, the test will run but refuses to green even when it looks like it reads properly
 
 
 // --------------------2) Create a function that takes in an array of words and returns an array with all the words capitalized.
 
-// a) Create a test with expect statements for each of the variables provided.
-// describe("capitalize", (arr) => {
-//   it("returns an array that has first letter of all words capitalized", () => {
-//     expect(capitalize(arr)).toEqual("array with first letteer capitalized")
-//   })
-// })
+//a) Create a test with expect statements for each of the variables provided.
+describe("capitalize", (arr) => {
+  it("returns an array that has first letter of all words capitalized", () => {
+    expect(capitalize(randomNouns1)).toEqual(["Streetlamp", "Potato", "Teeth", "Conclusion", "Nephew"])
+    expect(capitalize(randomNouns2)).toEqual(["Temperature", "Database", "Chopsticks", "Mango", "Deduction"])
+  })
+})
 //Got Red!
 
 const randomNouns1 = ["streetlamp", "potato", "teeth", "conclusion", "nephew"]
@@ -88,11 +90,11 @@ const randomNouns2 = ["temperature", "database", "chopsticks", "mango", "deducti
 // use map on the array to grab the element at [0] of each word
 // make certain it lowercases each remaining letter of the word
 
-// function capitalize(arr) {
-//   return arr.map(element => {
-//     return element.charAt(0).toUpperCase() + element.substring(1).toLowerCase()
-//   })
-// }
+function capitalize(arr) {
+  return arr.map(element => {
+    return element.charAt(0).toUpperCase() + element.substring(1).toLowerCase()
+  })
+}
 //
 // console.log(capitalize(randomNouns1))
 
@@ -104,23 +106,30 @@ const randomNouns2 = ["temperature", "database", "chopsticks", "mango", "deducti
 
 describe("vowelCheck", () => {
   it("returns the number of the index value with the first vowel", () => {
-    expect(vowelCheck()).toEqual("index value of first vowel")
+    expect(vowelCheck(vowelTester1)).toEqual(1)
+       expect(vowelCheck(vowelTester2)).toEqual(0)
+       expect(vowelCheck(vowelTester3)).toEqual(2)
   })
 })
-// Got Red! Always Red
-
+// // Got Red!
+//
 const vowelTester1 = "learn"
 // Expected output: 1
 const vowelTester2 = "academy"
 // Expected output: 0
 const vowelTester3 = "challenges"
 // Expected output: 2
-
-// b) Create the function that makes the test pass.
-for (var i = 0; i < string.length(); i++) {
-  if (vowelCheck(charAt(i))
-    return i
+//
+// // b) Create the function that makes the test pass.
+//Create function with a string parameter
+//use charAt to single out vowelCheck
+//true/false for aeiou
+// return index of first vowel
+const vowelCheck = (string) => {
+var vowel = ["a","e","i","o","u"]
+  for (var i = 0; i < string.length(); i++) {
+    if (vowelCheck(charAt([i] === vowel ))
+      return i
+    }
   }
-}
-
-// I kept trying to run/figure out this code with no avail. I tried a bunch of different functions to try getting results but nothing I could think of woulf fire correctly. Need second opinion.
+//redid it almost entirely but getting a weird error when running the test so I think it works just has some weird syntex thing.
